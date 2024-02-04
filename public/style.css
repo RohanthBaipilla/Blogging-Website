@@ -1,0 +1,102 @@
+/* Add this to your existing style.css */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+header {
+    background-color: #007bff;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #343a40;
+}
+
+.blog-list {
+    list-style: none;
+    padding: 0;
+}
+
+.card {
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+.card h3 {
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: #555555;
+    line-height: 1.6;
+}
+
+/* Add the following styles for navbar and header */
+.navbar {
+    background-color: #000000;
+    padding: 10px 0;
+}
+
+.navbar a {
+    color: #ffffff;
+    text-decoration: none;
+    margin-right: 20px;
+    font-size: 16px;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+}
+
+.header-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.header-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-height: 300px; /* Adjust the maximum height as needed */
+}
+
+/* Add this to your existing style.css */
+/* ... (previous styles) ... */
+
+/* Add the following styles for the fixed navbar */
+.fixed-navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #007bff;
+    padding: 10px 0;
+    z-index: 1000;
+    display: none;
+}
+
+.fixed-navbar a {
+    color: #ffffff;
+    text-decoration: none;
+    margin-right: 20px;
+    font-size: 16px;
+}
+
+.fixed-navbar a:hover {
+    text-decoration: underline;
+}

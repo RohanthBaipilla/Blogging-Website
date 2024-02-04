@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>Rohanth's Blog</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            transition: top 0.5s;
+            position: fixed;
+            width: 100%;
+            background-color: #000000;
+            color: #ffffff;
+            text-align: center;
+            padding: 15px 0;
+            z-index: 1000;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .header-container {
+            position: relative;
+            height: 90vh;
+            overflow: hidden;
+        }
+
+        .header-image {
+            width: 100%;
+            height: 100%;
+        }
+
+        h2 {
+            margin-top: 20px;
+            color: #343a40;
+        }
+
+        .blog-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .card {
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin-bottom: 20px;
+            padding: 20px;
+        }
+
+        .card h3 {
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #555555;
+            line-height: 1.6;
+        }
+
+        .create-button {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .create-button button {
+            background-color: #28a745;
+            color: #ffffff;
+            padding: 12px 24px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .create-button button:hover {
+            background-color: #218838;
+        }
+        .logo {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 32px !important;
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">Welcome to Rohanth's BLOG WEBSITE</h1><br>
+            <a href="/">Home</a>
+            <a href="/create">Create Blog</a>
+            <a href="/contact">Contact</a>
+            <a href="/about">About</a>
+        </div>
+    </nav>
+<br>
+    <!-- Full-width image -->
+    <div class="header-container"><br><br><br><br>
+        <img class="header-image" src="https://www.constantcontact.com/blog/wp-content/uploads/2019/01/Artboard-2.png" alt="Header Image">
+    </div>
+
+    <div class="container">
+        <!-- Blog list -->
+        <h2>Latest Blogs</h2>
+        <ul class="blog-list">
+            <% posts.forEach(post => { %>
+                <li class="card">
+                    <h3><%= post.title %></h3>
+                    <% const formattedDate = post.createdAt.toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'numeric', year: 'numeric' }); %>
+                    <p>Posted by <span style="color: #000000; font-weight: bold;"><%= post.username %></span> on <%= formattedDate %> at <%= post.createdAt.toLocaleTimeString() %></p>
+                    <a href="/post/<%= post._id %>">Read more</a>
+                </li>
+            <% }) %>
+        </ul>              
+    </div>
+
+    <script src="/scripts.js"></script>
+    <script>
+        let prevScrollPos = window.pageYOffset;
+        window.onscroll = function() {
+            const currentScrollPos = window.pageYOffset;
+            const navbar = document.querySelector('.navbar');
+            
+            if (prevScrollPos > currentScrollPos) {
+                navbar.style.top = '0';
+            } else {
+                navbar.style.top = `-${navbar.offsetHeight}px`;
+            }
+            
+            prevScrollPos = currentScrollPos;
+        };
+    </script>
+</body>
+</html>
